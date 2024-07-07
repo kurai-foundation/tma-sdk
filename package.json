@@ -1,0 +1,41 @@
+{
+  "name": "@kurai-io/tma-sdk",
+  "version": "0.0.0",
+  "description": "An abstraction layer for @tma.js/sdk that provides seamless interaction with native buttons and provides a more usable API.",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "scripts": {
+    "build": "npx tsc"
+  },
+  "keywords": [
+    "telegram",
+    "miniapp",
+    "webapp",
+    "sdk"
+  ],
+  "author": "Kurai Foundation",
+  "license": "MIT",
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kurai-foundation/tma-sdk.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "bugs": {
+    "url": "https://github.com/kurai-foundation/tma-sdk/issues"
+  },
+  "homepage": "https://github.com/kurai-foundation/tma-sdk#readme",
+  "dependencies": {
+    "@tma.js/sdk": "^2.7.0",
+    "uuid": "^10.0.0"
+  },
+  "devDependencies": {
+    "@types/uuid": "^10.0.0",
+    "typescript": "^5.5.3",
+    "tsc": "^2.0.4"
+  }
+}
