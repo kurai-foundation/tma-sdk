@@ -1,7 +1,7 @@
 # Telegram miniapp SDK
 
 An abstraction layer for @tma.js/sdk that provides 
-seamless interaction with native buttons and provides a more usable API.
+seamless interaction with native buttons and more usable API.
 
 ## Table of contents
 
