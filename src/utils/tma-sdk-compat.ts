@@ -51,6 +51,17 @@ export interface IMiniAppComponents {
   invoice?: Invoice
 }
 
+export type ICleanableComponents =
+  "miniApp"
+  | "themeParams"
+  | "settingsButton"
+  | "biometryManager"
+  | "viewport"
+  | "backButton"
+  | "mainButton"
+  | "closingBehavior"
+
+/** Compatibility layer with @tma.js/sdk */
 export class TmaSdkCompat {
   protected _miniAppComponents: IMiniAppComponents = {}
   protected _componentCleanupFunctions: Map<string, Function> = new Map()
@@ -59,6 +70,7 @@ export class TmaSdkCompat {
   protected _mainButtonEventsPool = new EventsPool<MainButtonEvents>()
   protected _backButtonEventsPool = new EventsPool<BackButtonEvents>()
 
+  /** Compatibility layer with @tma.js/sdk */
   protected constructor(onInitialize?: () => void) {
     try {
       this.performComponentsInit(onInitialize)

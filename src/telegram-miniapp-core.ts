@@ -1,10 +1,20 @@
-import { TmaSdkCompat } from "./utils/tma-sdk-compat"
+import { ICleanableComponents, TmaSdkCompat } from "./utils/tma-sdk-compat"
 
+/**
+ * Core SDK functionality
+ */
 export default class TelegramMiniappCore extends TmaSdkCompat {
+  /**
+   * Core SDK functionality
+   *
+   * @param onInitialize function that will be called after SDK initialization
+   * @protected
+   */
   protected constructor(onInitialize?: () => void) {
     super(onInitialize)
 
     if (this._isMiniApp) {
+      // Add event listener to the back button (executes every event from pool)
       const backButtonListener = () => {
         this._backButtonEventsPool.get("click").forEach(event => {
           if (event.once) this._backButtonEventsPool.off("click", event.id)
@@ -12,6 +22,7 @@ export default class TelegramMiniappCore extends TmaSdkCompat {
         })
       }
 
+      // Add event listener to the main button (executes every event from pool)
       const mainButtonListener = () => {
         this._mainButtonEventsPool.get("click").forEach(event => {
           if (event.once) this._mainButtonEventsPool.off("click", event.id)
@@ -29,6 +40,10 @@ export default class TelegramMiniappCore extends TmaSdkCompat {
     }
   }
 
+  /**
+   * A promise that completes only after all SDK components have been initialized
+   * @param pollingInterval interval in milliseconds for which the initialization status is checked
+   */
   public async waitForInitialization(pollingInterval = 50): Promise<void> {
     if (this._initialized) return
 
@@ -42,7 +57,12 @@ export default class TelegramMiniappCore extends TmaSdkCompat {
     })
   }
 
-  protected cleanupComponent(component: string): boolean {
+  /**
+   * A function, which performs cleanup removing all created elements and listeners for specific component
+   * @param component name of the component to destroy
+   * @protected
+   */
+  protected cleanupComponent(component: ICleanableComponents): boolean {
     if (!this._componentCleanupFunctions.has(component)) return false
 
     this._componentCleanupFunctions.get(component)?.()
@@ -50,6 +70,11 @@ export default class TelegramMiniappCore extends TmaSdkCompat {
     return true
   }
 
+  /**
+   * A function that performs a cleanup, deleting all created items and listeners.
+   * Call it only if you know what you are doing.
+   * @protected
+   */
   protected cleanupAllComponents() {
     Array.from(this._componentCleanupFunctions.values()).forEach(cleanupFunction => cleanupFunction?.())
   }
