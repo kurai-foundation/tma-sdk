@@ -173,7 +173,7 @@ export class TmaSdkCompat {
 
     Promise.all([
       viewport[0],
-      biometryManager[0]
+      biometryManager[0].catch(() => undefined)
     ]).then(([viewport, biometryManager]) => {
       this._miniAppComponents = {
         ...this._miniAppComponents,
