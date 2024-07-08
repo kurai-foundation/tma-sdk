@@ -5,10 +5,21 @@ seamless interaction with native buttons and provides a more usable API.
 
 ## Table of contents
 
+- [Installation](#installation)
 - [Basic usage](#basic-usage)
 - [Difference from @tma.js/sdk](#difference-from-tmajssdk)
 - [License](#license)
 
+## Installation
+Install with npm...
+```shell
+npm add @kurai-io/tma-sdk
+```
+
+... or with any package manager you like
+```shell
+[pnpm, yarn] add @kurai-io/tma-sdk
+```
 
 ## Difference from @tma.js/sdk
 
