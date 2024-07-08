@@ -1,6 +1,6 @@
 {
   "name": "@kurai-io/tma-sdk",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "An abstraction layer for @tma.js/sdk that provides seamless interaction with native buttons and provides a more usable API.",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
