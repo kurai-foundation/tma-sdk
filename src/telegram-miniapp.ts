@@ -3,6 +3,7 @@ import MainButtonComponent from "./components/main-button-component"
 import BackButtonComponent from "./components/back-button-component"
 import CloudStorageComponent from "./components/cloud-storage-component"
 import { IMiniAppComponents } from "./utils/tma-sdk-compat"
+import SwipeBehaviourComponent from "./components/swipe-behaviour-component"
 
 /**
  * Telegram app instance
@@ -22,6 +23,13 @@ export default class TelegramMiniapp extends TelegramMiniappCore {
   /** Returns `true` if miniapp sdk is available in current environment */
   public get isMiniApp() {
     return this._isMiniApp
+  }
+
+  /**
+   * Swipe behavior native component wrapper
+   */
+  public get swipeBehaviour() {
+    return new SwipeBehaviourComponent()
   }
 
   /**
